@@ -1,1093 +1,278 @@
-
-
 <!DOCTYPE html>
-<html lang="si">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-
-  <meta name="viewport" content="width=400, initial-scale=1">
-
-
-
-
-<link rel="stylesheet" type="text/css" href="https://dropways.github.io/deskapp/vendors/styles/style.css" />
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
-   
-  <title>blackmachant Support site</title>
-
-
-  
+  <title>DARK sessions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
-  
-  .button-container {
-      text-align: center;
+    body {
       display: flex;
       flex-direction: column;
       align-items: center;
-    }
-
-    h3 {
-      margin-top: -40px;
-      opacity: 0;
-      animation: fadeIn 3s forwards;
-    }
-
-    .btn-container {
-      width: 140px;
-      height: 40px;
-      display: flex;
-      margin-left: 10px;
-      align-items: center;
       justify-content: center;
-      gap: 10px;
-      padding: 0px 15px;
-      background-color: red;
-      border-radius: 15px;
-      border: none;
-      color: white;
-      position: relative;
-      cursor: pointer;
-      font-weight: 900;
-      transition-duration: .2s;
-      background: linear-gradient(0deg, #000, #272727);
-      text-decoration: none;
-    }
-
-
-    
-    .btn-container:before, .btn-container:after {
-      content: '';
-      position: absolute;
-      left: -2px;
-      top: -2px;
-      border-radius: 10px;
-      background: linear-gradient(45deg, #F5F5F5, #F5F5F5, #000000,#000000, #FFD700 );
-      background-size: 400%;
-      width: calc(100% + 4px);
-      height: calc(100% + 4px);
-      z-index: -1;
-      animation: steam 10s linear infinite;
-    }
-
-    @keyframes steam {
-      0% {
-        background-position: 0 0;
-      }
-
-      50% {
-        background-position: 400% 0;
-      }
-
-      100% {
-        background-position: 0 0;
-      }
-    }
-
-    .btn-container:after {
-      filter: blur(50px);
-    }
-
-    .btn-container span {
-      z-index: 1;
-    }
-
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
-    }
-    
-    
- 
-    
-    
-    
-    body {
-  font-family: 'Alex Brush', cursive;
-  background: url('https://i.ibb.co/w0nqV8K/Golden-Queen-MD-VIMAMODS-b4241102d913d806.jpg') no-repeat center center fixed;
-  background-size: cover;
-  margin: 0;
-  padding: 0;
-  width: 400px; /* iPhone width */
-    margin: 0 auto;
-    overflow-x: hidden;
-    transform: scale(1); 
-    /* Zoom issue fix */
-
-}
-
-
-
-
-
-   .footer {
-            background-color: black;
-            color: gold;
-            text-align: center;
-            padding: 15px;
-            font-size: 20px;
-            font-weight: bold;
-        }
-
-
-
-
-    header {
-      background-color: #ffcc00;
-      padding: 3px 0;
-      text-align: center;
-      font-size: 2px;
-      color: #fff;
-    }
-/* h2 style එක */
-    h2 {
-      background-color: #00000000;
-      color: #fff;
-      font-size: 20px;
-      padding: 10px 0;
-      text-align: center;
+      height: 100vh;
+      margin: 0;
+      background-color: black;
       overflow: hidden;
       position: relative;
     }
 
-    h2 span {
-      display: inline-block;
-      opacity: 0;
-      animation: moveText 10s ease-in-out infinite;
+    /* Atomic Animation */
+    .atomic-animation {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 200px;
+      height: 200px;
+      z-index: -1;
     }
 
-    /* keyframes - Letter by letter animation */
-    @keyframes moveText {
-      0% {
-        opacity: 0;
-        transform: translateX(100%);
+    .nucleus {
+      width: 20px;
+      height: 20px;
+      background-color: #00FFFF;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF;
+    }
+
+    .orbit {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      animation: rotate 5s linear infinite;
+    }
+
+    .orbit::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      width: 10px;
+      height: 10px;
+      background-color: #00FFFF;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF;
+    }
+
+    .orbit:nth-child(2) {
+      width: 150%;
+      height: 150%;
+      animation-duration: 7s;
+    }
+
+    .orbit:nth-child(3) {
+      width: 200%;
+      height: 200%;
+      animation-duration: 10s;
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
       }
-      50% {
-        opacity: 1;
-        transform: translateX(0);
-      }
-      100% {
-        opacity: 0;
-        transform: translateX(-100%);
+      to {
+        transform: rotate(360deg);
       }
     }
 
-    /* Delay each letter */
-    h2 span:nth-child(1) {
-      animation-delay: 0s;
+    /* Existing Styles */
+    .btn {
+      --color: #e5f5f1;
+      --color2: rgb(0, 0, 0);
+      width: 200px;
+      padding: 0.8em 1.75em;
+      background-color: transparent;
+      border-radius: 6px;
+      border: .3px solid var(--color);
+      transition: .5s;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      z-index: 1;
+      font-weight: 300;
+      font-size: 17px;
+      font-family: 'Roboto', 'Segoe UI', sans-serif;
+      text-transform: uppercase;
+      color: var(--color);
+      margin-bottom: 24px;
     }
-    h2 span:nth-child(2) {
-      animation-delay: 1s;
-    }
-    h2 span:nth-child(3) {
-      animation-delay: 2s;
-    }
-    h2 span:nth-child(4) {
-      animation-delay: 3s;
-    }
-    h2 span:nth-child(5) {
-      animation-delay: 4s;
-    }
-    h2 span:nth-child(6) {
-      animation-delay: 5s;
-    }
-    h2 span:nth-child(7) {
-      animation-delay: 6s;
-    }
-    h2 span:nth-child(8) {
-      animation-delay: 7s;
-    }
-    h2 span:nth-child(9) {
-      animation-delay: 8s;
-    }
-    h2 span:nth-child(10) {
-      animation-delay: 9s;
-    }
-    
 
-    h1 {
-      text-align: left;
-      font-family: 'Alex Brush', cursive;
-      color: #Ffffff;
-
-    font-weight: bold; /* Standard bold */
-
-      padding-bottom: 15px;
-      padding-top: 15px;
-      margin-left:5px;
-            margin-right:65px;
-            margin-bottom:15px;
-            margin-top:5px;
-      font-size: 20px;
-      border-radius: 2px;
+    .btn::after, .btn::before {
+      content: '';
+      display: block;
+      height: 100%;
+      width: 100%;
+      transform: skew(90deg) translate(-50%, -50%);
+      position: absolute;
+      inset: 50%;
+      left: 25%;
+      z-index: -1;
+      transition: .5s ease-out;
+      background-color: var(--color);
     }
-    .profile-table {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      margin: 20px 0;
+
+    .btn::before {
+      top: -50%;
+      left: -25%;
+      transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
     }
-    .profile-row {
-      display: flex;
-      align-items: center;
-      padding: 15px;
-      background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.1)), 
-      border-radius: 5px;
+
+    .btn:hover::before {
+      transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
+    }
+
+    .btn:hover::after {
+      transform: skew(45deg) translate(-50%, -50%);
+    }
+
+    .btn:hover {
+      color: var(--color2);
+    }
+
+    .btn:active {
+      filter: brightness(.7);
+      transform: scale(.98);
+    }
+
+    .story {
+      margin: 20px;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.8);
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
-    .profile-img {
-      flex: 0 0 80px;
-      height: 80px;
-      border-radius: 50%;
-      margin-right: 15px;
-      object-fit: cover;
+
+    .audio-controls {
+      margin-top: 20px;
     }
-    .profile-info {
-      flex: 1;
+
+    .hacker-button {
+      background-color: #FFFF33;
+      color: #6633FF;
+      border: 2px solid #3300FF;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    .hacker-button:hover {
+      background-color: #f00;
+      color: #FF33FF;
+    }
+
+    .contact-details {
+      margin-top: 20px;
+      color: #990099;
+    }
+
+    .copyright {
+      margin-top: 20px;
+      color: #FFFF00;
+    }
+
+    .news-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      font-family: "Roboto", sans-serif;
+      box-shadow: 0 4px 8px -4px rgba(0, 0, 0, 0.3);
+    }
+
+    .news-container .title {
+      position: absolute;
+      background: #df2020;
+      height: 100%;
       display: flex;
-      flex-direction: column;
-    }
-    .profile-info h3 {
-      margin: 0;
-      color: #eee;
-    }
-    .profile-info p {
-      margin: 5px 0;
-      color: #777;
-    }
-    .profile-info a {
-      text-decoration: none;
-      color: #4CAF50;
+      align-items: center;
+      padding: 0 24px;
+      color: white;
       font-weight: bold;
-    }
-    .profile-info a:hover {
-      color: #357a38;
-    }
-    @media (max-width: 768px) {
-      .profile-row {
-        flex-direction: row;
-        align-items: center;
-      }
-      .profile-img {
-        flex: 0 0 60px;
-        height: 60px;
-        margin-right: 10px;
-      }
-      .profile-info h3 {
-        font-size: 16px;
-        font-family: 'Alex Brush', cursive;
-      }
-      .profile-info p {
-        font-size: 14px;
-      }
-    }
-    
-    p {
-      background-color: #00000000;
-      color: #fff;
-      font-size: 15px;
-      padding: 15px 0;
-      text-align: center;
-      overflow: hidden;
-      position: relative;
-    }
-    
-        c {
-      background-color: #00000000;
-      color: #c0c090;
-      font-size: 15px;
-      padding: 5px 0;
-      
-      overflow: hidden;
-      position: relative;
+      z-index: 200;
     }
 
- /* Video container */
-        .video-container {
-            position: relative;
-            max-width: 80%;
-            overflow: hidden;
-            margin-left: 10px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Video iframe styles */
-        .video-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            border-radius: 10px;
-            
-        }
-
-        /* Title text style */
-        .video-title {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 20px;
-            font-weight: bold;
-            color: #fff;
-        }
-   
-  
-
-               #clock {
-            font-size: 60px;
-            font-weight: bold;
-            color: #Ffffff;
-        }
-    
-
-
-    .hbtn-container {
-      width: 140px;
-      height: 40px;
-      margin-left: 10px;
+    .news-container ul {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 0px 15px;
-      background-color: red;
-      border-radius: 10px;
-      border: none;
-      color: #ADD8E6;
+      list-style: none;
+      margin: 0;
+      animation: scroll 25s infinite linear;
+    }
+
+    .news-container ul li {
+      white-space: nowrap;
+      padding: 10px 24px;
+      color: #494949;
       position: relative;
-      cursor: pointer;
-      font-weight: 900;
-      transition-duration: .2s;
-      background: linear-gradient(0deg, #000, #272727);
-      text-decoration: none;
     }
 
-
-    
-    .hbtn-container:before, .hbtn-container:after {
-      content: '';
+    .news-container ul li::after {
+      content:"";
+      width: 1px;
+      height: 100%;
+      background: #b8b8b8;
       position: absolute;
-      left: -2px;
-      top: -2px;
-      border-radius: 10px;
-      background: linear-gradient(45deg, #00FFFF, #00FFFF, #000000,#000000, #F5F5F5 );
-      
-      background-size: 400%;
-      width: calc(100% + 4px);
-      height: calc(100% + 4px);
-      z-index: -1;
-      animation: steam 10s linear infinite;
+      top: 0;
+      right: 0;
     }
 
-    @keyframes steam {
-      0% {
-        background-position: 0 0;
+    .news-container ul li:last-child::after {
+      display: none;
+    }
+
+    @keyframes scroll {
+      from {
+        transform: translateX(100%);
       }
-
-      50% {
-        background-position: 400% 0;
-      }
-
-      100% {
-        background-position: 0 0;
-      }
-    }
-
-    .hbtn-container:after {
-      filter: blur(50px);
-    }
-
-    .hbtn-container span {
-      z-index: 1;
-    }
-
-    @keyframes fadeIn {
       to {
-        opacity: 1;
+        transform: translateX(-1083px);
       }
     }
-    
-    
-    
-    
-        .rbtn-container {
-      width: 140px;
-      height: 40px;
-      display: flex;
-      margin-left: 50px;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 0px 15px;
-      background-color: red;
-      border-radius: 15px;
-      border: none;
-      color: #ADD8E6;
-      position: relative;
-      cursor: pointer;
-      font-weight: 900;
-      transition-duration: .2s;
-      background: linear-gradient(0deg, #000, #272727);
-      text-decoration: none;
-    }
-
-
-    
-    .rbtn-container:before, .hbtn-container:after {
-      content: '';
-      position: absolute;
-      left: -2px;
-      top: -2px;
-      border-radius: 10px;
-      background: linear-gradient(45deg, #FF00FF, #FF00FF, #000000,#000000, #F5F5F5 );
-      
-      background-size: 400%;
-      width: calc(100% + 4px);
-      height: calc(100% + 4px);
-      z-index: -1;
-      animation: steam 10s linear infinite;
-    }
-
-    @keyframes steam {
-      0% {
-        background-position: 0 0;
-      }
-
-      50% {
-        background-position: 400% 0;
-      }
-
-      100% {
-        background-position: 0 0;
-      }
-    }
-
-    .rbtn-container:after {
-      filter: blur(50px);
-    }
-
-    .rbtn-container span {
-      z-index: 1;
-    }
-
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
-    }
-    
-    
-    /* Menu Button */
-.menu-container {
-    position: relative;
-    display: inline-block;
-}
-
-.menu-btn {
-    background-color: #3498db;
-    color: white;
-    padding: 10px 20px;
-    font-size: 18px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.menu-btn:hover {
-    background-color: #2980b9;
-}
-
-/* Dropdown Menu */
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    left: 0;
-    top: 40px;
-    background-color: white;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    min-width: 150px;
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-.dropdown-menu a {
-    display: block;
-    padding: 10px 15px;
-    text-decoration: none;
-    color: #333;
-    transition: 0.3s;
-}
-
-.dropdown-menu a:hover {
-    background-color: #f1f1f1;
-}
-
-/* Show Dropdown on Hover */
-.menu-container:hover .dropdown-menu {
-    display: block;
-}
-    
-    .social-buttons {
-            display: flex;
-            gap: 20px;
-        }
-        .social-buttons img {
-            width: 50px;
-            height: 50px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        .social-buttons img:hover {
-            transform: scale(1.1);
-        }
-
-
-
-
- .btn1-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 30px; /* Button දෙක අතර ඉඩ */
-        }
-        .btn1 {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            font-size: 18px;
-            font-weight: bold;
-            border: none;
-            cursor: pointer;
-            border-radius: 8px;
-            transition: 0.3s;
-            text-decoration: none;
-            text-align: center;
-            min-width: 170px; /* Button එකේ width එක balance */
-            height: 60px; /* Button එකේ height එක balance */
-        }
-        .btn1 img {
-            width: 30px; /* Image size */
-            height: 30px;
-            margin-right: 15px; /* Space between icon & text */
-        }
-        .heroku-btn1 {
-            background-color: #7952B3;
-            color: white;
-            
-        }
-        .heroku-btn1:hover {
-            background-color: #5a3e99;
-        }
-        .github-btn1 {
-            background-color: #333;
-            color: white;
-        }
-        .github-btn1:hover {
-            background-color: #222;
-        }
-        
-        
-         .1video-container {
-            width: 100%;
-            max-width: 400px; /* TikTok size */
-            height: 600px;
-            overflow: hidden;
-            position: relative;
-            border-radius: 50px; /* හතරම වටකරන්න */
-        }
-        video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 25px; /* Video වටකුරු කරන්න */
-        }
-        
-            .fit-image {
-        width: 100vw; /* viewport එකේ පළලටම */
-        height: 100vh; /* viewport එකේ උසටම */
-        object-fit: contain; /* මුලු රූපයම දිස්වන පරිදි */
-        display: block;
-        margin: auto;
-        background-color: black; /* රූපයෙන් බාහිර ඉඩ ඇති විට, කළු පැහැයක් යෙදීම */
-    }
-        
-  .gift-container {
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    height: auto;
-    width: 150px; /* Page height වලට center */
-  }
-
-  .rounded-gift {
-    width: 150px; /* පොඩි උස */
-    height: auto;
-    border-radius: 15px; /* මුළු හතර රවුම් */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* shadow effect */
-  }
-  
-  
-  
-   .session-container {
-    display: flex;
-    justify-content: space-between; /* Left side buttons & right side GIF */
-    align-items: center;
-    width: 100%;
-    padding: 20px;
-  }
-  
- .h1h {
-    font-size: 24px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    animation: textColorShift 5s infinite;
-	justify-content: center;
-	
-}
-  
-header {
-    background: rgba(34, 34, 34, 0.8);
-    color: #fff;
-    padding: 15px 20px;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
-    backdrop-filter: blur(10px);
-    animation: headerBgChange 5s ease-in-out infinite;
-}
-    
-</style>
-
-  
-  <div class="pre-loader">
-  <div class="pre-loader-box">
-     <div class="loading-text">𝘽𝙇𝘼𝘾𝙆𝙈𝘼𝘾𝙃𝘼𝙉𝙏-𝙈𝘿</div>
-    <div class="loader-progress" id="progress_div">
-      <div class="bar" id="bar1"></div>
-    </div>
-    <div class="percent" id="percent1">0%</div>
-    <div class="loading-text">𝙇𝙤𝙖𝙙𝙞𝙣𝙜...</div>
-  </div>
-</div>  
+  </style>
 </head>
 <body>
-
-    <header > 
-       <div class='h1h'> <h2> 𝘽𝙇𝘼𝘾𝙆𝙈𝘼𝘾𝙃𝘼𝙉𝙏-𝙈𝘿</h2></div>
-        <button class="menu-btn" onclick="toggleMenu()">☰</button>
-        <nav id="menu">
-            <ul>
-            <li><a href="#home" onclick="closeMenu()">🏠 Home</a></li>
-            <li><a href="#services" onclick="closeMenu()">🛠 Services</a></li>
-			<li><a href="#news" onclick="closeMenu()">📰 News</a></li>
-            <li><a  href="#contact" onclick="closeMenu()">📞 Contact Developer</a></li>
-               
-            </ul>
-        </nav>
-    </header>
-<audio autoplay >
-        <source src="https://github.com/GoldenQueens/GoldenQueen-MD-Database/raw/refs/heads/main/Audio/AUD-20250129-WA0006%20(online-audio-converter.com)%20(1).mp3" type="audio/mpeg">
-        ඔබේ browser එක Audio ප්ලේ කරන්නට මූලික නොවේ!
-    </audio>
-
-
-  <div class="content" >
-  <div class="menu-container">
-  <button class="menu-btn">☰ Menu</button>
-        <div class="dropdown-menu">
-            <a href="#">🏠 Home</a>
-            <a href="#">📄 About</a>
-            <a href="#">🛠 Services</a>
-            <a href="https://wa.me/94776734030">📞 Contact</a>
-        </div>
-              </div>
-           
-
-    <h2><span>𝘽𝙇𝘼𝘾𝙆𝙈𝘼𝘾𝙃𝘼𝙉𝙏-𝙈𝘿</span></h2>
-
-<div id="clock" >
-        <span class="hours">00</span>:<span class="minutes">00</span>:<span class="seconds">00</span>
-    </div>
-
+  <!-- Atomic Animation -->
+  <div class="atomic-animation">
+    <div class="nucleus"></div>
+    <div class="orbit"></div>
+    <div class="orbit"></div>
+    <div class="orbit"></div>
   </div>
-<div class="gift-container">
-  <audio autoplay controls src="https://files.catbox.moe/71dyid.m4a" class="rounded-gift"></audio>
-</div>
-</div>
-  
-  <div class="session-container">
-    <p>𝗧𝗵𝗶𝘀 𝗶𝘀 𝘽𝙇𝘼𝘾𝙆𝙈𝘼𝘾𝙃𝘼𝙉𝙏-𝙈𝘿 𝗠𝗲𝗻𝘂 𝗱𝗲𝘀𝗶𝗴𝗻  <br> 𝗔 𝗺𝘂𝗹𝘁𝗶𝗱𝗲𝘃𝗶𝗰𝗲 𝘄𝗵𝗮𝘁𝘀𝗮𝗽𝗽 𝗯𝗼𝘁<br><br>
-╰►Hey, Good afternoon ☀️, Ghost<br>
-╭━━━  ⟮ 𝘽𝙇𝘼𝘾𝙆𝙈𝘼𝘾𝙃𝘼𝙉𝙏-𝙈𝘿⟯━━━━━━┈⊷<br>
-┃✵╭──────────────<br>
-┃✵│ 𝗧𝗼𝘁𝗮𝗹 𝗽𝗹𝘂𝗴𝗶𝗻𝘀: 570<br>
-┃✵│ 𝗖𝗼𝗺𝗺𝗮𝗻𝗱𝗲𝗿: Ghost<br>
-┃✵│ 𝗟𝗶𝗯𝗿𝗮𝗿𝘆: Baileys<br>
-┃✵│ 𝗠𝗼𝗱𝗲: private<br>
-┃✵│ 𝗣𝗿𝗲𝗳𝗶𝘅: - <br>
-┃✵╰──────────────<br>
-╰━━━━━━━━━━━━━━━━━━┈⊷<br>
-━━━━━━━━━━━━━━━━━━━━<br>
-┃𒊹┃𒊹┃𒊹┃𒊹┃𒊹┃𒊹┃𒊹┃𒊹┃<br>
 
- ╭─────「 𝐀𝐈 」───┈⊷<br> 
- ││◦➛  1. Chatbot<br>
- ││◦➛  2. Copilot<br>
- ││◦➛  3. Bard<br>
- ││◦➛  4. Backbox<br>
- ││◦➛  5. Deepseek<br>
- ││◦➛  6. Metai<br>
- ││◦➛  7. Gpt<br>
- ││◦➛  8. Groq<br>
- ││◦➛  9. Ilama<br>
- ││◦➛  10. Vision<br>
- ╰──────────────┈⊷</p> 
-
-<div class="gift-container">
-  <video controls src="https://files.catbox.moe/c2pg8e.mp4" border="0" class="rounded-gift"></video>
-</div>
-</div>
-
-
-
-
-
-    <h1>𝐒𝐞𝐬𝐬𝐢𝐨𝐧 𝐂𝐨𝐫𝐧𝐞𝐫</h1>
-   
-<div></div>
-    <a href="/qr" class="btn-container"  target="_blank"> <span>QR Scanner</span> </a> <br>
-    <a href="/pair" class="rbtn-container"  target="_blank"> <span>Pair Code</span> </a> <br>
-    
-
-    
-    
-    <div></div>
-    
-    
-
-    <h1>𝐃𝐞𝐩𝐥𝐨𝐲𝐦𝐞𝐧𝐭 𝐂𝐨𝐫𝐧𝐞𝐫</h1>
-
-
-  
- <div class="btn1-container">
-        <a href="https://dashboard.heroku.com/new?template=https://https://github.com/Blackie254/blackmachant-md.git" class="btn1 heroku-btn1">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/heroku/heroku-original.svg" alt="Heroku Logo">
-            𝐇𝐄𝐑𝐎𝐊𝐔
-        </a>
-        <a href="https://github.com/Blackie254/blackmachant-md/blackmachant-md/fork" class="btn1 github-btn1">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub Logo">
-            𝐅𝐨𝐫𝐤 𝘽𝙇𝘼𝘾𝙆𝙈𝘼𝘾𝙃𝘼𝙉𝙏-𝙈𝘿
-        </a>
-      <a href="https://github.com/Blackie254/blackmachant-md" class="btn1 github-btn1">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub Logo">
-         𝘽𝙇𝘼𝘾𝙆𝙈𝘼𝘾𝙃𝘼𝙉𝙏-𝙈𝘿 𝐑𝐞𝐩𝐨
-        </a> 
+  <div class="news-container">
+    <div class="title">
+      Hello there
     </div>
+    <ul>
+      <li>welcome to DARK_TECH solutions!</li>
+      <li>Here you will get session ids for your whatsapp bots</li>
+      <li>DARK Md and others</li>
+    </ul>
+  </div>
 
-    <h1>Need help??</h1>
+  <center>  
+    <button onclick="window.open(`/qr`)" class="btn">qr code</button>
+    <button onclick="window.open(`/pair`)" class="btn">pair code</button>
+    <button onclick="window.open(`https://github.com/darkdev-tech/DARK-V2/fork`)" class="btn">Fork DARK-MD</button>
+    <button onclick="window.open(`https://github.com/darkdev-tech/DARK-V2`)" class="btn">Open DARK-MD Repo</button>
+  </center>
 
-
-
-
-
-
-    <a href="https://wa.me/254768792955?text=Hello_black_I_need_help" class="btn-container" target="_blank"> <span>HELP</span> </a> <br>
-
-    
-    
-
-        
-        <h1>How to link session id and deployment steps</h1>
-
-
-  <div class="session-container">
-   
-    
-
-      
-        <p>First step on how to link session id 
-               
-
-<br>
-<br>
-Tap on the session pairing tab to generate your session code <br>
-blackmachant md will send you a pairing code copy it to your clipboard<br>
-Occasionally you will receive a Whatsapp notification to confirm your linking or<br>
- Go to the upper right corner written link device  and link your session code<br>
-<br><br>
-</p>
-
-<div class="gift-container">
-  <img src="https://i.imgur.com/aGmtrh0.jpeg" 
-       alt="VID-20250131-WA0180-ezgif-com-speed" 
-       class="rounded-gift">
-   
-
-</div>
-</div>
-  <div class="session-container">
-   
-    
-
-      
-        <p>next
-<br>
-<br>
-Now you need to paste your copied code to linked device  <br>
-You will need to verify using mobile data or any to link <br>
-Paste it and it will take a few seconds to login then keith md send you session id in your pm<br>
-<br><br>
-</p>
-<div class="gift-container">
-  <img src="https://files.catbox.moe/blx5ce.jpg" 
-       alt="VID-20250131-WA0180-ezgif-com-speed" 
-       class="rounded-gift">
-   
-
-</div>
-</div>
- <div class="session-container">
-   
-    
-
-      
-        <p>last step of your session 
-<br>
-<br>
-Here is your session . Don't share it with anyone <br>
-<br><br>
-</p>
-<div class="gift-container">
-  <img src="https://files.catbox.moe/om5pwh.jpg" 
-       alt="VID-20250131-WA0180-ezgif-com-speed" 
-       class="rounded-gift">
-   
-
-</div>
-</div>
-<p>
-How to deploy blackmachant md 
- <br>
- <br>
-Tap blackmachant md repo make sure you fork and first before doing anything or else your bot won't work 🗿🗿<br><br>
-
-Next of your deployment 
-<br>
-<br>
-Next you should choose on the platform you want to host your bot. blackmachant md is deployable on any platform that is ; render , heroku , termux , panel vercel or and others .For the fastest go for heroku and deploy</p>
-
-  <h1> follow blackmachant Md developer  </h1>
-
-    
-   <div class="social-buttons">
-        <a href="https://www.facebook.com/profile.php?id=100095180674234" target="_blank">
-            <img src="https://files.catbox.moe/bgvwn7.png" alt="Facebook" class="fit-image">>
-        </a>
-        <a href="https://youtube.com/@blackmachant" target="_blank">
-            <img src="https://i.ibb.co/99CsHKJz/Golden-Queen-MD-VIMAMODS-0431058706166c62.jpg" alt="YouTube" class="fit-image">
-        </a>
-       <a href="#" target="_blank">
-            <img src="https://files.catbox.moe/bdl8jd.jpg" alt="discord" class="fit-image">
-        </a>
-      <a href="#" target="_blank">
-            <img src="https://files.catbox.moe/2cs53i.png" alt="GitHub" class="fit-image">
-        </a>
-        <a href="https://www.tiktok.com/@keizzah4189?_t=ZM-8uGtVK3AcNx&_r=1" target="_blank">
-            <img src="https://i.ibb.co/bgjzbM84/Golden-Queen-MD-VIMAMODS-3036b7916d739e1a.jpg" alt="TikTok" class="fit-image">
-        </a>
-          <a href="#" target="_blank">
-            <img src="https://files.catbox.moe/8h2jsl.png" alt="Instagram" class="fit-image">
-        </a>
-        <a href="#" target="_blank">
-            <img src="https://files.catbox.moe/u15rqm.png" alt="twitter" class="fit-image">
-        </a>
-         <a href="#" target="_blank">
-            <img src="https://files.catbox.moe/bx9z24.jpg" alt="Telegram" class="fit-image">
-        </a>
-        <a href="https://whatsapp.com/channel/0029Vaan9TF9Bb62l8wpoD47" target="_blank">
-            <img src="https://i.ibb.co/W4LwvQwj/Golden-Queen-MD-VIMAMODS-e06ea640eaf77737.jpg" alt="WhatsApp" class="fit-image">
-        </a>
-    </div> 
-<div class="container">
-
-  <h1>special regards to these people </h1>
-
-  <!-- Dreaded owner -->
-  <h2>Thanks to perez md bot owner for the base bot</h2>
-  <div class="profile-table">
-    <div class="profile-row">
-      <img class="profile-img" src="https://github.com/Fortunatusmokaya.png" alt="🇰🇪Fortunatusmokaya">
-      <div class="profile-info">
-        <h3>Fortunatusmokaya</h3>
-        <c>Helped in debugging and provided a base bot for blackmachant Md🙏</c>
-        <a href="https://github.com/Fortunatusmokaya/">Mokaya🗿</a>
-      </div>
-    </div>
-   </div>
-  <!-- perez md owner -->
-  <h2>Thanks to me and i appreciate my effort</h2>
-  <div class="profile-table">
-    <div class="profile-row">
-      <img class="profile-img" src="https://github.com/Blackie254/blackmachant-md.png" alt="blackmachant">
-      <div class="profile-info">
-        <h3> blackmachant Md</h3>
-        <c>perez Md and blackmachant Md owner</c>
-        <a href="https://github.com/Blackie254/blackmachant-md/">blackmachant 🗿</a>
-      </div>
-    </div>
-   </div>
-<br><br>
-
- <footer class="footer">
-        ©black 2025 || <span id="currentYear"></span>
-    </footer>
-    
+  <div class="copyright">
+    <center>
+      <p>&copy; 𝐃𝐀𝐑𝐊-𝐌𝐃 2025</p>
+      <p>𝐃𝐞𝐬𝐢𝐠𝐧𝐞𝐝 𝐁𝐲 <b>𝐃𝐀𝐑𝐊 𝐓𝐄𝐂𝐇</b> 𝐅𝐨𝐫  𝐘𝐨𝐮 👌</p>
+    </center>
+  </div>
 </body>
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-  <script src="https://dropways.github.io/deskapp/vendors/scripts/core.js"></script>
-  <script src="https://dropways.github.io/deskapp/vendors/scripts/script.min.js"></script>
-  <script src="https://dropways.github.io/deskapp/vendors/scripts/process.js"></script>
-  <script src="https://dropways.github.io/deskapp/vendors/scripts/layout-settings.js"></script>
-  <script>
-        function getRandomColor() {
-    const colors = [
-        "yellow", "green", "red", "blue", 
-        "turquoise", "pink", "white", "gold", "purple"
-    ];
-    return colors[Math.floor(Math.random() * colors.length)];
-}
-
-        function updateClock() {
-            let now = new Date();
-            let hours = String(now.getHours()).padStart(2, '0');
-            let minutes = String(now.getMinutes()).padStart(2, '0');
-            let seconds = String(now.getSeconds()).padStart(2, '0');
-
-            document.querySelector(".hours").textContent = hours;
-            document.querySelector(".minutes").textContent = minutes;
-            document.querySelector(".seconds").textContent = seconds;
-
-            // තත්පරවල `<span>` එකේ පාට වෙනස් කරනවා
-            document.querySelector(".seconds").style.color = getRandomColor();
-            document.querySelector(".minutes").style.color = getRandomColor();
-            document.querySelector(".hours").style.color = getRandomColor();
-        }
-
-        setInterval(updateClock, 1000);
-        updateClock(); 
-    </script>
-        <script>
-    // Particles.js Configuration
-    particlesJS("particles-js", {
-      "particles": {
-        "number": {
-          "value": 100, // Number of particles
-          "density": {
-            "enable": true,
-            "value_area": 800
-          }
-        },
-        "color": {
-          "value": "#ffffff" // Particle color
-        },
-        "shape": {
-          "type": "circle", // Particle shape
-          "stroke": {
-            "width": 1,
-            "color": "#000000"
-          },
-          "polygon": {
-            "nb_sides": 5
-          }
-        },
-        "opacity": {
-          "value": 1,
-          "random": false,
-          "anim": {
-            "enable": false,
-            "speed": 0.5,
-            "opacity_min": 0.1,
-            "sync": false
-          }
-        },
-        "size": {
-          "value": 5,
-          "random": true,
-          "anim": {
-            "enable": false,
-            "speed": 10,
-            "size_min": 0.1,
-            "sync": false
-          }
-        },
-        "line_linked": {
-          "enable": true,
-          "distance": 150,
-          "color": "#ffffff",
-          "opacity": 0.4,
-          "width": 1
-        },
-        "move": {
-          "enable": true,
-          "speed": 6,
-          "direction": "none",
-          "random": false,
-          "straight": false,
-          "out_mode": "out",
-          "bounce": false,
-          "attract": {
-            "enable": false,
-            "rotateX": 600,
-            "rotateY": 1200
-          }
-        }
-      },
-      "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-          "onhover": {
-            "enable": true,
-            "mode": "grab"
-          },
-          "onclick": {
-            "enable": true,
-            "mode": "push"
-          },
-          "resize": true
-        },
-        "modes": {
-          "grab": {
-            "distance": 140,
-            "line_linked": {
-              "opacity": 1
-            }
-          },
-          "bubble": {
-            "distance": 400,
-            "size": 40,
-            "duration": 2,
-            "opacity": 8,
-            "speed": 3
-          },
-          "repulse": {
-            "distance": 200,
-            "duration": 0.4
-          },
-          "push": {
-            "particles_nb": 4
-          },
-          "remove": {
-            "particles_nb": 2
-          }
-        }
-      },
-      "retina_detect": true
-    });
-  </script>
-    
+</html>
