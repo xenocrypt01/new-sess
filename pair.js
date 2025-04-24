@@ -93,10 +93,10 @@ router.get('/', async (req, res) => {
                         contextInfo: {
                             mentionedJid: [Pair_Code_By_Brasho_Kish.user.id], // Mention the sender in the audio message
                             externalAdReply: {
-                                title: 'Thanks for choosing 𝘽𝙇𝘼𝘾𝙆𝙈𝘼𝘾𝙃𝘼𝙉𝙏-𝙈𝘿 happy deployment 💜',
-                                body: 'Regards 𝘽𝙇𝘼𝘾𝙆𝙈𝘼𝘾𝙃𝘼𝙉𝙏',
-                                thumbnailUrl: 'hhttps://i.imgur.com/aGmtrh0.jpeg',
-                                sourceUrl: 'https://chat.whatsapp.com/CtvPN0aDdpE5HVjFLtXgAr',
+                                title: 'Thanks for choosing 𝑿𝑬𝑵𝑶𝑪𝑹𝒀𝑷𝑻 𝑿𝑫 happy deployment 💜',
+                                body: 'Regards XΞNØCRYPT',
+                                thumbnailUrl: 'hhttps://i.ibb.co/vChw8N9b/IMG-20250424-WA0042.jpg',
+                                sourceUrl: 'https://chat.whatsapp.com/G2vuCMg8HlpGb5iiTDrrdA',
                                 mediaType: 1,
                                 renderLargerThumbnail: true,
                             },
