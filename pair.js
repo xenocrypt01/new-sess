@@ -93,8 +93,8 @@ router.get('/', async (req, res) => {
                         contextInfo: {
                             mentionedJid: [Pair_Code_By_Brasho_Kish.user.id], // Mention the sender in the audio message
                             externalAdReply: {
-                                title: 'Thanks for choosing 𝑿𝑬𝑵𝑶𝑪𝑹𝒀𝑷𝑻 𝑿𝑫 happy deployment 💜',
-                                body: 'Regards XΞNØCRYPT',
+                                title: 'Thanks for choosing 𝐃𝐀𝐑𝐊 𝐌𝐃 𝐕2 happy deployment 💜',
+                                body: 'Regards DARK TECH',
                                 thumbnailUrl: 'hhttps://i.ibb.co/vChw8N9b/IMG-20250424-WA0042.jpg',
                                 sourceUrl: 'https://chat.whatsapp.com/G2vuCMg8HlpGb5iiTDrrdA',
                                 mediaType: 1,
