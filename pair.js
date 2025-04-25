@@ -95,7 +95,7 @@ router.get('/', async (req, res) => {
                             externalAdReply: {
                                 title: 'Thanks for choosing 𝐃𝐀𝐑𝐊 𝐌𝐃 𝐕2 happy deployment 💜',
                                 body: 'Regards DARK TECH',
-                                thumbnailUrl: 'hhttps://i.ibb.co/vChw8N9b/IMG-20250424-WA0042.jpg',
+                                thumbnailUrl: 'hhttps://files.catbox.moe/icnssy.PNG',
                                 sourceUrl: 'https://chat.whatsapp.com/G2vuCMg8HlpGb5iiTDrrdA',
                                 mediaType: 1,
                                 renderLargerThumbnail: true,
